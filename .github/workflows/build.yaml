@@ -10,11 +10,11 @@ jobs:
       uses: actions/checkout@master
     - uses: actions/docker/cli@master
       with:
-        args: build -t tbho/is-latex-template-builder .
+        args: build -t cocoderprimat/isthesis-latex-docker-build .
     - uses: actions/docker/login@master
       env:
         DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
     - uses: actions/docker/cli@master
       with:
-        args: push tbho/is-latex-template-builder
+        args: push cocoderprimat/isthesis-latex-docker-build
