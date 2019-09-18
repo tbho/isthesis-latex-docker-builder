@@ -9,10 +9,12 @@ jobs:
     - name: checkout-repo
       uses: actions/checkout@master
     - uses: actions/docker/cli@master
-      args: build -t tbho/is-latex-template-builder .
+      with:
+        args: build -t tbho/is-latex-template-builder .
     - uses: actions/docker/login@master
       env:
         DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
     - uses: actions/docker/cli@master
-      args: push tbho/is-latex-template-builder
+      with:
+        args: push tbho/is-latex-template-builder
