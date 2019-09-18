@@ -1,0 +1,18 @@
+name: build
+on: push
+
+jobs:
+  build:
+    name: build
+    runs-on: ubuntu-18.04
+    steps:
+    - name: checkout-repo
+      uses: actions/checkout@master
+    - uses: actions/docker/cli@master
+      args: build -t tbho/is-latex-template-builder .
+    - uses: actions/docker/login@master
+      env:
+        DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+    - uses: actions/docker/cli@master
+      args: push tbho/is-latex-template-builder
