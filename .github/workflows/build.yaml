@@ -10,11 +10,11 @@ jobs:
       uses: actions/checkout@master
     - uses: actions/docker/cli@master
       with:
-        args: build -t cocoderprimat/isthesis-latex-docker-build .
+        args: build -t cocoderprimat/isthesis-latex-docker-builder .
     - uses: actions/docker/login@master
       env:
         DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
     - uses: actions/docker/cli@master
       with:
-        args: push cocoderprimat/isthesis-latex-docker-build
+        args: push cocoderprimat/isthesis-latex-docker-builder
