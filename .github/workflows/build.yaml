@@ -20,15 +20,16 @@ jobs:
     name: build
     runs-on: ubuntu-18.04
     steps:
-    - name: checkout-repo
-      uses: actions/checkout@master
-    - uses: actions/docker/cli@master
-      with:
-        args: build -t cocoderprimat/isthesis-latex-docker-builder .
-    - uses: actions/docker/login@master
+    - name: login-github-packages
       env:
         DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-    - uses: actions/docker/cli@master
-      with:
-        args: push cocoderprimat/isthesis-latex-docker-builder
+        DOCKER_REGISTRY_URL: "hub.docker.com"
+      run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD $DOCKER_REGISTRY_URL
+    - name: checkout-repo
+      uses: actions/checkout@master
+    - name: build-image
+      run: docker build --pull -t cocoderprimat/isthesis-latex-docker-builder .
+    - name: push-image-master
+      run: docker push cocoderprimat/isthesis-latex-docker-builder
+      if: github.ref == 'refs/heads/master'
