@@ -23,24 +23,24 @@ bibtex /tex/thesis
 pdflatex /tex/thesis
 pdflatex /tex/thesis
 
-rm *.toc
-rm -r *.aux
-rm -r ./tex/*.aux
-rm -r ./conf/*.aux
-rm *.acn
-rm *.glo
-rm *.bbl
-rm *.out
-rm *.ist
-rm *.blg
-rm *.syi
-rm *.syg
-rm *.slg
-rm *.gls
-rm *.glg
-rm *.alg
-rm *.acr
-rm *.lot
-rm *.lol
-rm *.lof
-rm *.idx
+rm -f *.toc
+rm -fr *.aux
+rm -fr ./tex/*.aux
+rm -fr ./conf/*.aux
+rm -f *.acn
+rm -f *.glo
+rm -f *.bbl
+rm -f *.out
+rm -f *.ist
+rm -f *.blg
+rm -f *.syi
+rm -f *.syg
+rm -f *.slg
+rm -f *.gls
+rm -f *.glg
+rm -f *.alg
+rm -f *.acr
+rm -f *.lot
+rm -f *.lol
+rm -f *.lof
+rm -f *.idx
