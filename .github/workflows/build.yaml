@@ -24,8 +24,7 @@ jobs:
       env:
         DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-        DOCKER_REGISTRY_URL: "hub.docker.com"
-      run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD $DOCKER_REGISTRY_URL
+      run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
     - name: checkout-repo
       uses: actions/checkout@master
     - name: build-image
