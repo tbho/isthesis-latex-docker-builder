@@ -1,4 +1,7 @@
-#  Copyright 2020 Tobias Hoge
+#!/bin/bash
+
+#  -----
+#  Copyright 2019 Tobias Hoge
 
 #  Licensed under the Apache License, Version 2.0 (the "License");
 #  you may not use this file except in compliance with the License.
@@ -11,19 +14,26 @@
 #  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
+#  -----
 
-FROM ubuntu:latest
-
-RUN apt-get update
-
-RUN ln -fs /usr/share/zoneinfo/Europe/Berlindocker  /etc/localtime && \
-    apt-get install -y tzdata && \
-    dpkg-reconfigure --frontend noninteractive tzdata
-
-RUN apt-get install -y texlive texlive-lang-german texlive-latex-extra texlive-science texlive-latex-recommended
-
-WORKDIR /tex
-
-COPY entrypoint.sh /entrypoint.sh
-
-CMD ["/entrypoint.sh"]
+rm -f *.toc
+rm -fr *.aux
+rm -fr ./tex/*.aux
+rm -fr ./conf/*.aux
+rm -f *.acn
+rm -f *.glo
+rm -f *.bbl
+rm -f *.out
+rm -f *.ist
+rm -f *.blg
+rm -f *.syi
+rm -f *.syg
+rm -f *.slg
+rm -f *.gls
+rm -f *.glg
+rm -f *.alg
+rm -f *.acr
+rm -f *.lot
+rm -f *.lol
+rm -f *.lof
+rm -f *.idx
