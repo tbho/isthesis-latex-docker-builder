@@ -28,7 +28,7 @@ jobs:
     - name: checkout-repo
       uses: actions/checkout@master
     - name: build-image
-      run: docker build --pull -t cocoderprimat/isthesis-latex-docker-builder .
+      run: docker build --pull -t tbho/isthesis-latex-docker-builder .
     - name: push-image-master
-      run: docker push cocoderprimat/isthesis-latex-docker-builder
+      run: docker push tbho/isthesis-latex-docker-builder
       if: github.ref == 'refs/heads/master'
