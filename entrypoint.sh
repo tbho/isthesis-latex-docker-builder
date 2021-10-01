@@ -16,9 +16,9 @@
 #  limitations under the License.
 #  -----
 
-pdflatex /tex/thesis
-pdflatex /tex/thesis
-makeglossaries /tex/thesis
-bibtex /tex/thesis
-pdflatex /tex/thesis
-pdflatex /tex/thesis
+pdflatex thesis
+pdflatex thesis
+makeglossaries thesis
+bibtex thesis
+pdflatex thesis
+pdflatex thesis
